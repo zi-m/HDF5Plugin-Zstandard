@@ -1,5 +1,10 @@
 #include <stdlib.h>
+#if defined(zstd_h5filter_API_EXPORTS) || defined(zstd_h5_STATIC)
+#include "hdf5.h"
+#define DLL_EXPORT static
+#else
 #include "zstd_h5plugin.h"
+#endif
 #include "zstd.h"
 
 #define ZSTD_FILTER 32015
